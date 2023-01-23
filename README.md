@@ -61,100 +61,30 @@ This application is used to receive data, then notifications directly with the c
 <td>
 
 
-English
-aplikasi ini akan langsung menampilkan notifikasi jika data terkirim sesuai dengan data connect . notifikasi nya terdiri dari 2 bentuk , yaitu notifikasi di page contoh nya seperti dibawah ini :
 This application will immediately display a notification if the data sent matches the data connect. The notification consists of 2 forms, namely the notification on the page, for example as below:
 
-![Chat Preview](https://github.com/zainuddin-maker/Maintanance-Calendar/blob/master/hovervassel.PNG?raw=true)
+![Chat Preview](https://github.com/zainuddin-maker/Notification-Realtime-App/blob/master/PoupupinPage.PNG?raw=true)
 
-we can set the location of the ship based on id and position data
+And also notifications on the device, will appear in the lower right corner of the screen, for example as below:
 
-For maintenance data, it is used to display the maintenance schedule and also its status, status based on the input legend provided, and its color based on the status matched to the legend. and on the maintenance label you can input an image. in the maintenance section you can click and output the maintenance data. and also in this section you can hover and display data maintenance information
+![Chat Preview](https://github.com/zainuddin-maker/Notification-Realtime-App/blob/master/PoupupinOS.PNG?raw=true)
 
-![Chat Preview](https://github.com/zainuddin-maker/Maintanance-Calendar/blob/master/hovermain.PNG?raw=true)
 
-And also if the data is on today then the calendar header will change color to gray, and there is an hour pointer for the current situation.
-
-![Chat Preview](https://github.com/zainuddin-maker/Maintanance-Calendar/blob/master/Today.PNG?raw=true)
 
 
 </td>
 </tr>
 </table>
 
-<!-- ## BIND DATA
-
-1.  JSONDocinformation , input - JSON - Data for Doc Information in header
-
-
-        {
-            name: (STRING),
-            value: (STRING),
-        }
-
-
-
-2.  JSONHeaderinformation, input - JSON - Data for Headerinformation in header.
-
-
-        {
-            name: (STRING),
-            value: (STRING),
-        }
-
-3.  ConfigurationWidth, input - INFOTABLE - Configuration widht each of column in excel.
-
-
-        {
-            width: (STRING),
-        }
-
-
-4.  BooleanDisplayButton , input -BOOLEAN - Input for button seen or not
-5.  Filename , input - STRING - name of file after exported
-6.  Headername , input - STRING - the title in template document.
-4.  LabourProductivity , input - INFOTABLE - Data for Labour Productuvity
-
-        {
-            name: (STRING),
-            value: (STRING),
-            unit:  (STRING),
-         }
-
-5.  DataAddChangeMaintanance , input - INFOTABLE - List of Change of Maintanance .
-
-        datashape :
-        {
-            changefrom : (DATE),
-            idmaintanance : (NUMBER),
-        }
-
-6.  DataClickMaintanance , output - INFOABLE - Data out after click maintanance .
-
-        datashape :
-        {
-            form : (DATE) ,
-            to : (DATE),
-            id : (STRING),
-            idmaintanance : (NUMBER),
-            imgstatus : (STRING),
-            status : (STRING),
-            text : (STRING),
-        }
-
-7.  idRandom , input - STRING - Random ID for Application
-8.  HeightOfHeader , input - NUMBER - change height of header tittle
-
-## BIND TRIGGER
-
-1. clickMaintanance, out - "Event triggered when clicked the maintanance"
-1. updateMaintanance, in - "Event triggered when maintanance updated"
-
-
- -->
 
 ## Built with
 
 -   [D3.js](https://d3js.org/) - D3.js is a JavaScript library for manipulating documents based on data.
+-   [mqtt.js](https://www.npmjs.com/package/mqtt) - MQTT.js is a client library for the MQTT protocol, written in JavaScript for node.js and the browser.
+-   [firebase-app.js](https://www.npmjs.com/package/@firebase/app) - This package coordinates the communication between the different Firebase components.
+-   [firebase-messaging.js](https://www.npmjs.com/package/@firebase/messaging) - This is the Firebase Cloud Messaging component of the Firebase JS SDK.
+-   [socket.io.min.js](https://cdnjs.com/libraries/socket.io) - socket.io node.js realtime framework server.
+-   [toastify.js](https://apvarun.github.io/toastify-js/) - Better notification messages.
+-   [toastify.min.css](https://github.com/apvarun/toastify-js/blob/master/README.md) - Toastify is a lightweight, vanilla JS toast notification library.
 -   [html](https://www.w3schools.com/html/) - HTML is the standard markup language for Web pages.
 -   [css](https://www.w3schools.com/css/) - CSS is the language we use to style an HTML document
