@@ -38,7 +38,7 @@ const playSound =() => {
 }
 
 const registerServiceWorker = () => {
-    return navigator.serviceWorker.register(`http://127.0.0.1:5500/PJ-Portek-ID/notification-html/sw.js`);
+    return navigator.serviceWorker.register(`http://127.0.0.1:5509/sw.js`);
 
     // navigator.serviceWorker
     // .register(
@@ -94,109 +94,109 @@ client_mqtt.on("connect", function () {
     client_mqtt.subscribe("MTCCC");
 });
 
-// client_mqtt.on("message", function (topic, message) {
-//     // message is Buffer
-//     try {
-//         const response = message.toString();
-//         console.log("mqtt notification");
-//         console.log(JSON.parse(response));
+client_mqtt.on("message", function (topic, message) {
+    // message is Buffer
+    try {
+        const response = message.toString();
+        console.log("mqtt notification");
+        console.log(JSON.parse(response));
 
-//         var backgroundcolor = '#fff'
+        var backgroundcolor = '#fff'
 
-//         if (JSON.parse(response).status == "success"){
-//             backgroundcolor = "#59BA56"
-//         } else if (JSON.parse(response).status == "warning"){
-//             backgroundcolor = "#FFB71B"
-//         }else if (JSON.parse(response).status == "critical"){
-//             backgroundcolor = "#FA604B"
-//         }else if (JSON.parse(response).status == "info"){
-//             backgroundcolor = "#38B4DF"
-//         }
+        if (JSON.parse(response).status == "success"){
+            backgroundcolor = "#59BA56"
+        } else if (JSON.parse(response).status == "warning"){
+            backgroundcolor = "#FFB71B"
+        }else if (JSON.parse(response).status == "critical"){
+            backgroundcolor = "#FA604B"
+        }else if (JSON.parse(response).status == "info"){
+            backgroundcolor = "#38B4DF"
+        }
         
-//         if (popUpBrowser){
-//             Toastify({
-//                 text: JSON.parse(response).status + " with message: "+ JSON.parse(response).message,
-//                 duration: 2000,
-//                 // destination: "https://github.com/apvarun/toastify-js",
-//                 // newWindow: true,
-//                 close: true,
-//                 gravity: "top", // `top` or `bottom`
-//                 position: "center", // `left`, `center` or `right`
-//                 stopOnFocus: true, // Prevents dismissing of toast on hover
-//                 style: {
-//                     background: backgroundcolor,
-//                     color : "#000"
-//                 },
-//                 onClick: function () {
+        if (popUpBrowser){
+            Toastify({
+                text: JSON.parse(response).status + " with message: "+ JSON.parse(response).message,
+                duration: 20000,
+                // destination: "https://github.com/apvarun/toastify-js",
+                // newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                    background: backgroundcolor,
+                    color : "#000"
+                },
+                onClick: function () {
 
-//                     window.open(JSON.parse(response).url, '_blank').focus();
-//                 }, // Callback after click
-//             }).showToast();
-//         }
+                    window.open(JSON.parse(response).url, '_blank').focus();
+                }, // Callback after click
+            }).showToast();
+        }
 
-//         if (popUpOS){
+        if (popUpOS){
             
-//             notifyUser(JSON.parse(response).title , JSON.parse(response).url , JSON.parse(response).icon, JSON.parse(response).message , JSON.parse(response).status )
+            notifyUser(JSON.parse(response).title , JSON.parse(response).url , JSON.parse(response).icon, JSON.parse(response).message , JSON.parse(response).status )
             
-//         }
+        }
         
-//         if (isSoundActive){
-//             playSound();
-//         }
+        if (isSoundActive){
+            playSound();
+        }
         
         
         
 
-//         // var divbox =  document.getElementById("id-div-toastify")
+        // var divbox =  document.getElementById("id-div-toastify")
 
-//         // console.log(divbox)
-//         // console.log(divbox.style)
+        // console.log(divbox)
+        // console.log(divbox.style)
 
-//         // if (divbox.style.display !== "none") {
-//         //     divbox.style.display = "none";
-//         // } else {
-//         //     divbox.style.display = "flex";
-//         // }
-//     } catch (e) {
-//         console.log(e.message);
-//     }
-// });
-
-
+        // if (divbox.style.display !== "none") {
+        //     divbox.style.display = "none";
+        // } else {
+        //     divbox.style.display = "flex";
+        // }
+    } catch (e) {
+        console.log(e.message);
+    }
+});
 
 
-// const socketIO = io("https://192.168.7.121:4001");
 
-// socketIO.on('connection', (socket) => {
-//     console.log('a user connected');
-//   });
 
-// socketIO.on("connect", () => {
-//     console.log("Client Connect");
-// });
+const socketIO = io("https://192.168.7.121:4001");
 
-// socketIO.on("disconnect", () => {
-//     console.log("Client Disconnect");
-// });
+socketIO.on('connection', (socket) => {
+    console.log('a user connected');
+  });
 
-// socketIO.on("DCIM_NOTIFICATION", (data) => {
-//     console.log(JSON.parse(data).text);
-//     Toastify({
-//         text: JSON.parse(data).text,
-//         duration: 3000,
-//         // destination: "https://github.com/apvarun/toastify-js",
-//         // newWindow: true,
-//         close: true,
-//         gravity: "top", // `top` or `bottom`
-//         position: "center", // `left`, `center` or `right`
-//         stopOnFocus: true, // Prevents dismissing of toast on hover
-//         style: {
-//           background: "linear-gradient(to right, #00b09b, #96c93d)",
-//         },
-//         onClick: function(){} // Callback after click
-//       }).showToast();
-//    notifyUser(JSON.parse(data).text)
-// });
+socketIO.on("connect", () => {
+    console.log("Client Connect");
+});
+
+socketIO.on("disconnect", () => {
+    console.log("Client Disconnect");
+});
+
+socketIO.on("DCIM_NOTIFICATION", (data) => {
+    console.log(JSON.parse(data).text);
+    Toastify({
+        text: JSON.parse(data).text,
+        duration: 3000,
+        // destination: "https://github.com/apvarun/toastify-js",
+        // newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        },
+        onClick: function(){} // Callback after click
+      }).showToast();
+   notifyUser(JSON.parse(data).text)
+});
 
 // var loc = window.location.pathname;
 // var dir = loc.substring(0, loc.lastIndexOf('/'));
