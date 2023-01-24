@@ -15,7 +15,7 @@
 <!-- ![screenshot](https://github.com/zainuddin-maker/Export-Excel-to-Json/blob/master/Convert_excel_to_JSON.mp4?raw=true) -->
 
 
-This application is used to receive data, then notifications directly with the choice of firebase connection, socket io or mqtt.
+This application is used to receive data, then notifications directly with the choice of firebase connection, socket io or mqtt with custom sound .
 
 ## Example Data
 
